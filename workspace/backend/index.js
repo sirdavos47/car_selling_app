@@ -16,6 +16,12 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/car_selling
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
+
+// Routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/cars', require('./routes/cars'));
+app.use('/api/messages', require('./routes/messages'));
+
 app.get('/', (req, res) => {
   res.send('Second Hand Car Selling App Backend');
 });
