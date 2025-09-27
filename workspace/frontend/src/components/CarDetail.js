@@ -15,6 +15,7 @@ function CarDetail() {
   return (
     <div>
       <h2>{car.title}</h2>
+      {car.image && <img src={car.image} alt="car" style={{width:300, height:200, objectFit:'cover'}} />}
       <p>{car.description}</p>
       <p>Fiyat: {car.price}₺</p>
       <p>Yıl: {car.year}</p>

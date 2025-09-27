@@ -50,7 +50,8 @@ function CarList() {
       </div>
       <ul>
         {(showMine ? myCars : cars).map(car => (
-          <li key={car._id}>
+          <li key={car._id} style={{marginBottom:12}}>
+            {car.image && <img src={car.image} alt="car" style={{width:100, height:70, objectFit:'cover', marginRight:8}} />}
             <Link to={`/cars/${car._id}`}>{car.title} - {car.price}₺</Link>
             {token && myCars.find(c => c._id === car._id) && (
               <button onClick={() => handleDelete(car._id)} style={{marginLeft:8}}>Sil</button>

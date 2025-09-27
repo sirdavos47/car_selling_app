@@ -1,6 +1,19 @@
 const express = require('express');
+
 const Car = require('../models/Car');
 const auth = require('../utils/authMiddleware');
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage });
 
 const router = express.Router();
 
@@ -17,9 +30,13 @@ router.get('/:id', async (req, res) => {
   res.json(car);
 });
 
-// Create car
-router.post('/', auth, async (req, res) => {
-  const car = new Car({ ...req.body, seller: req.user.userId });
+// Create car with image upload
+router.post('/', auth, upload.single('image'), async (req, res) => {
+  const carData = { ...req.body, seller: req.user.userId };
+  if (req.file) {
+    carData.image = `/uploads/${req.file.filename}`;
+  }
+  const car = new Car(carData);
   await car.save();
   res.status(201).json(car);
 });
