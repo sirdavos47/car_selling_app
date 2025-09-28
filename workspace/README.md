@@ -38,9 +38,14 @@ Car Selling App, DoneDeal'den esinlenerek geliştirilmiş, ikinci el araba alım
    npm install
    ```
 2. Edit the `.env` file if needed.
+
 3. Start the server:
    ```bash
    npm start
+   ```
+4. Run backend tests:
+   ```bash
+   npm test
    ```
 
 #### Features
@@ -85,9 +90,14 @@ Car Selling App, DoneDeal'den esinlenerek geliştirilmiş, ikinci el araba alım
    npm install
    ```
 2. `.env` dosyasını gerekirse düzenleyin.
+
 3. Sunucuyu başlatın:
    ```bash
    npm start
+   ```
+4. Backend testlerini çalıştırın:
+   ```bash
+   npm test
    ```
 
 #### Özellikler
