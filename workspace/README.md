@@ -130,3 +130,4 @@ Car Selling App, DoneDeal'den esinlenerek geliştirilmiş, ikinci el araba alım
 - Backend için MongoDB gereklidir.
 - Frontend ve backend ayrı portlarda çalışır.
 - Genel gelistirme
+- UT ekle
